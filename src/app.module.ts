@@ -20,7 +20,7 @@ import { Wish } from './wishes/entities/wish.entity'
       password: 'student',
       database: 'kupipodariday',
       entities: [User, Offer, Wishlist, Wish],
-      synchronize: false,
+      synchronize: true,
     }),
     UsersModule,
     WishesModule,
