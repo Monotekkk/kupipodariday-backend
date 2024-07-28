@@ -1,34 +1,34 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
-import { UsersService } from './users.service';
-import { CreateOfferDto } from './dto/create-user.dto';
-import { UpdateOfferDto } from './dto/update-user.dto';
+import { OffersService } from './offers.service';
+import { CreateOfferDto } from './dto/create-offer.dto';
+import { UpdateOfferDto } from './dto/update-offer.dto';
 
 @Controller('users')
 export class UsersController {
-  constructor(private readonly usersService: UsersService) {}
+  constructor(private readonly OffersService: OffersService) {}
 
   @Post()
   create(@Body() offer: CreateOfferDto) {
-    return this.usersService.create(offer);
+    return this.OffersService.create(offer);
   }
 
   @Get()
   findAll() {
-    return this.usersService.findAll();
+    return this.OffersService.findAll();
   }
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.usersService.findOne(+id);
+    return this.OffersService.findOne(+id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateUserDto: UpdateOfferDto) {
-    return this.usersService.update(+id, updateUserDto);
+    return this.OffersService.update(+id, updateUserDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.usersService.remove(+id);
+    return this.OffersService.remove(+id);
   }
 }
