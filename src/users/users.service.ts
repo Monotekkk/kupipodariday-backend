@@ -9,10 +9,10 @@ import { Repository } from 'typeorm';
 export class UsersService {
   constructor(
     @InjectRepository(User)
-    private userRepository: Repository<User>
-  ) { }
+    private userRepository: Repository<User>,
+  ) {}
 
-  async create(dto:CreateUserDto): Promise<User> {
+  async create(dto: CreateUserDto): Promise<User> {
     return this.userRepository.save(dto);
   }
 
@@ -20,12 +20,12 @@ export class UsersService {
     return this.userRepository.find();
   }
 
-  async findOne(id: number):Promise<User> {
+  async findOne(id: number): Promise<User> {
     return this.userRepository.findOneBy({ id });
   }
 
   async update(id: number, updateUserDto: UpdateUserDto) {
-    return this.userRepository.update({id}, updateUserDto);
+    return this.userRepository.update({ id }, updateUserDto);
   }
 
   async remove(id: number) {
