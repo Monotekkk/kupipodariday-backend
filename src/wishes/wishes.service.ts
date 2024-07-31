@@ -4,6 +4,7 @@ import { UpdateWishDto } from './dto/update-wish.dto';
 import { FindOneOptions, Repository } from 'typeorm';
 import { Wish } from './entities/wish.entity';
 import { InjectRepository } from '@nestjs/typeorm';
+import { User } from 'src/users/entities/user.entity';
 
 @Injectable()
 export class WishesService {
@@ -11,7 +12,7 @@ export class WishesService {
     @InjectRepository(Wish)
     private wishesRepository: Repository<Wish>,
   ) {}
-  create(createWishDto: CreateWishDto) {
+ async create(createWishDto: CreateWishDto, user: User): Promise<Wish> {
     return 'This action adds a new wish';
   }
 
